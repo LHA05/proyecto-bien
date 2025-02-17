@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Reportes de Fallas</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon">
+                    <img src="img/logo.png" style="width: 80px; height: 70px; vertical-align: middle;">
+                </div>
+                <div class="sidebar-brand-text mx-3">COPSA Y COPAGRA</div>
+            </a>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <img src="img/autobus.png" style="width: 25px; height: 20px; vertical-align: middle;">
+                    <span>Autobuses</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+
+            </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <img src="img/reporte.png" style="width: 25px; height: 20px; vertical-align: middle;">
+                    <span>Reportes</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="falla.html">Fallas Reportadas</a>
+                       
+                        <a class="collapse-item" href="utilities-animation.html">Reporte de Operadores</a>
+                        <a class="collapse-item" href="utilities-other.html">Reporte de Mecanicos</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <img src="img/trabajo.png" style="width: 25px; height: 20px; vertical-align: middle;">
+                    <span>Trabajo</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="utilities-border.html">Generar Orden de Trabajo</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <img src="img/km.png" style="width: 25px; height: 20px; vertical-align: middle;">
+                    <span>KM y Insumos</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="insumos.html">KM y Insumos</a>
+                        <a class="collapse-item" href="blank.html">Almacen</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <img src="img/grafica.png" style="width: 25px; height: 20px; vertical-align: middle;">
+                    <span>Dashboard</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar"
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrador</span>
+                                <img class="img-profile rounded-circle" src="img/profile.png">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    Salir
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="anima" id="anima-div">
+                    <h1 id="titulo-anima">Operadores</h1> <!-- Título de autobuses -->
+                </div>
+                <div class="container-anima">
+                    <!-- Formulario en dos columnas -->
+                    <div class="form-section">
+                        <form action="#" method="POST">
+                            <div class="form-row">
+                                <label for="nombre">id:</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="correo">Nombre:</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="telefono">Apellido Paterno::</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="telefono">Apellido Materno:</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="matricula">Telefono:</label>
+                                <input type="text" id="matricula" name="matricula" required>
+                            </div>
+
+                            <img src="img/informe.png" alt="Flecha" class="img-ver-listas1" onclick="mostrarTabla()">
+                        </form>
+                    </div>
+                    <!-- Segunda columna del formulario -->
+                    <div class="form-section">
+                        <form action="#" method="POST">
+                           
+
+                            <div class="form-row">
+                                <label for="empresa">Naciemiento:</label>
+                                <input type="text" id="empresa" name="empresa" required>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="empresa">Calle:</label>
+                                <input type="text" id="empresa" name="empresa" required>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="carrera">Sexo:</label>
+                                <select id="carrera" name="carrera" required>
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="informatica">Activo</option>
+                                    <option value="administracion">Inactivo</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="carrera">Estatus:</label>
+                                <select id="carrera" name="carrera" required>
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="informatica">Activo</option>
+                                    <option value="administracion">Inactivo</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-guardar">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+
+                 <!-- Tabla oculta dentro de una card -->
+                <div id="atabla" style="display: none;" class="card-atabla">
+                    <div class="anima-tabla">
+                        <!-- Imagen de flecha a la izquierda -->
+                        <img src="img/arrow-lef.png" alt="Flecha Regresar" class="img-regresar"
+                            onclick="regresarFormulario()">
+                            <img src="img/write.png" alt="Flecha Regresar" class="img-guardar" onclick="Guardar()">
+                        <h1>Lista de Opetadores</h1>
+                    </div>
+
+                    <!-- Incluir los archivos CSS y JS de DataTables -->
+                    <link rel="stylesheet" type="text/css"
+                        href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+                    <script type="text/javascript" charset="utf8"
+                        src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script type="text/javascript" charset="utf8"
+                        src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+                    <!-- Tabla con DataTable -->
+                    <table id="editable-atable" class="display table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Apellido Materno</th>
+                                <th>Apellido Paterno</th>
+                                <th>Telefono</th>
+                                <th>Nacimiento</th>
+                                <th>Calle</th>
+                                <th>Sexo</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="editable">12345</td>
+                                <td class="editable">Modelo A</td>
+                                <td class="editable">ABC123</td>
+                                <td class="editable">NIV123</td>
+                                <td class="editable">Motor A</td>
+                                <td class="editable">Marca A</td>
+                                <td class="editable">Activo</td>
+                                <td class="editable">Activo</td>
+                            </tr>
+                            <tr>
+                                <td class="editable">67890</td>
+                                <td class="editable">Modelo B</td>
+                                <td class="editable">DEF456</td>
+                                <td class="editable">NIV456</td>
+                                <td class="editable">Motor B</td>
+                                <td class="editable">Marca B</td>
+                                <td class="editable">Inactivo</td>
+                                <td class="editable">Activo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Botón para guardar cambios -->
+                   
+
+                      <!-- Conectar el archivo JS -->
+  <script src="js/alertas.js"></script>
+
+                    <script>
+                        $(document).ready(function () {
+                            // Inicializa la tabla como DataTable
+                            var table = $('#editable-atable').DataTable();
+
+                            // Hacer que las celdas sean editables
+                            $('#editable-atable').on('click', 'td.editable', function () {
+                                var cell = table.cell(this);
+                                var currentValue = cell.data();
+                                var input = $('<input>', {
+                                    value: currentValue,
+                                    type: 'text',
+                                    blur: function () {
+                                        var newValue = input.val();
+                                        cell.data(newValue).draw();  // Actualiza el valor y redibuja la tabla
+                                    },
+                                    keydown: function (e) {
+                                        if (e.key === 'Enter') {
+                                            input.blur();  // Salir del input cuando se presiona Enter
+                                        }
+                                    }
+                                });
+
+                                // Reemplazar el contenido de la celda por un campo de texto editable
+                                $(this).html(input);
+                                input.focus();
+                            });
+                        });
+                    </script>
+                </div>
+
+                <script>
+                    function mostrarTabla() {
+                        // Mostrar la tabla
+                        document.getElementById('atabla').style.display = 'block';
+
+                        // Ocultar el formulario
+                        document.querySelector('.container-anima').style.display = 'none';
+
+                        // Ocultar el título "Autobuses" y el div que lo contiene
+                        document.getElementById('anima-div').style.display = 'none';
+                    }
+
+                    function regresarFormulario() {
+                        // Mostrar el formulario
+                        document.querySelector('.container-anima').style.display = 'flex';
+
+                        // Ocultar la tabla
+                        document.getElementById('atabla').style.display = 'none';
+
+                        // Mostrar el título "Autobuses" y el div que lo contiene
+                        document.getElementById('anima-div').style.display = 'block';
+                    }
+                </script>
+
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Estas seguro de
+                                    que
+                                    deseas
+                                    salir?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="login.php">Salir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de datatable -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- Bootstrap core JavaScript-->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- Incluir jQuery desde CDN -->
+            <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- Incluir el script de DataTables desde CDN -->
+            <script type="text/javascript" charset="utf8"
+                src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="js/sb-admin-2.min.js"></script>
+            <!-- Page level plugins -->
+            <script src="vendor/chart.js/Chart.min.js"></script>
+            <!-- Page level custom scripts -->
+            <script src="js/demo/chart-area-demo.js"></script>
+            <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>
